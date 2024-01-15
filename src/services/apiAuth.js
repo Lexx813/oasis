@@ -1,5 +1,6 @@
 import supabase, { supabaseUrl } from "./supabase";
 import axios from "axios";
+import "dotenv/config";
 // const serviceRoleKey = import.meta.env.VITE_SERVICE_KEY;
 const serviceRoleKey = process.env.VITE_SERVICE_KEY;
 
