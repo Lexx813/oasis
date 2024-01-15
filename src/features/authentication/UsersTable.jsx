@@ -19,7 +19,7 @@ function UsersTable() {
     <>
       <Table columns='0.6fr 2fr 2.4fr 1.4fr 1fr 3.2rem'>
         <Table.Header>
-          <div> Name</div>
+          <div>Name</div>
           <div>Email</div>
 
           <div></div>
