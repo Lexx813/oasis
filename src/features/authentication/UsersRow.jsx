@@ -19,7 +19,7 @@ function BookingRow({ users }) {
   return (
     <Table.Row>
       <Name>{fullName}</Name>
-      <Email>{email}</Email>
+      <Emai>{email}</Email>
     </Table.Row>
   );
 }
