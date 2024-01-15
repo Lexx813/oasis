@@ -1,4 +1,6 @@
 import supabase, { supabaseUrl } from "./supabase";
+import axios from "axios";
+const serviceRoleKey = import.meta.env.VITE_SERVICE_KEY;
 
 export async function signup({ fullName, email, password }) {
   const { data, error } = await supabase.auth.signUp({
@@ -75,13 +77,17 @@ export async function updateCurrentUser({ password, fullName, avatar }) {
 }
 
 // GET ALL USERS
-
 export async function getAllUsers() {
-  const {
-    data: { users },
-    error,
-  } = await supabase.auth.admin.listUsers();
-
-  if (error) throw new Error(error.message);
-  return users;
+  try {
+    const response = await axios.get(`${supabaseUrl}/auth/v1/admin/users`, {
+      headers: {
+        apikey: serviceRoleKey,
+        Authorization: `Bearer ${serviceRoleKey}`,
+      },
+    });
+    const users = response.data;
+    return users;
+  } catch (error) {
+    console.error("Error fetching users:", error);
+  }
 }
