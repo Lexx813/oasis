@@ -1,12 +1,12 @@
 import supabase, { supabaseUrl } from "./supabase";
 import axios from "axios";
-
 const serviceRoleKey = import.meta.env.VITE_SERVICE_KEY;
 
 export async function signup({ fullName, email, password }) {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
+
     options: {
       data: {
         fullName,
